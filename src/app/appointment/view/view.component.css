@@ -8,8 +8,9 @@
 table {
   width: 100%;
   text-align: left !important;
-  background-color: #cab4ff;
-  /*font-family: 'Alegreya', serif;*/
+  background-color: #e2d7ff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
 }
 
 .details {
@@ -29,13 +30,16 @@ th, td {
 }
 
 .font-1 {
-  font-family: 'Alegreya', serif;
-  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3em;
+  font-weight: bolder;
 }
 
 .font-1-xx-large {
-  font-family: 'Alegreya', serif;
-  font-size: xx-large;
+  font-family: 'Raleway', serif;
+  font-size: xxx-large;
+  font-weight: bold;
+  color: #412464;
 }
 
 mat-form-field {
@@ -44,7 +48,7 @@ mat-form-field {
 }
 
 .mat-paginator {
-  background-color: #cab4ff;
+  background-color: #e2d7ff;
 }
 
 .paginator-shadow {
@@ -68,11 +72,31 @@ mat-form-field {
 }
 
 th {
-  font-family: 'Alegreya', serif;
-  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
   font-size: larger;
+}
+
+td {
+  font-size: 17px;
 }
 
 .edit-cell {
   text-align: center !important;
+}
+
+.back-button {
+  position: relative;
+}
+
+.back-button-color {
+  background-color: #c88ff3;
+  position: relative;
+  left: 12.5vw;
+  top: 1vw;
+}
+
+.back-button-color:hover {
+  background-color: #ae82fc;
+  color: white;
 }

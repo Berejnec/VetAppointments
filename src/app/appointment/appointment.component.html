@@ -1,2 +1,71 @@
-<mat-label>Adaugă o programare nouă</mat-label>
+<div class="wrapper">
+  <mat-card class="card">
+    <form [formGroup]="appointmentFormGroup" (ngSubmit)="onSubmit()">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>book_online</mat-icon>
+        <mat-card-title class="font-large raleway-font bold">Rezervă o programare</mat-card-title>
+        <mat-card-subtitle>După ce vei rezerva vei fi repartizat la unul dintre doctorii noștri.</mat-card-subtitle>
+      </mat-card-header>
+      <!--      <h1 class="padding-top-5 title-style flex-box padding-bottom-2">Rezervă o programare</h1>-->
+      <div class="flex-box">
+
+        <mat-form-field appearance="fill" class="padding-top-5">
+          <mat-label>Nume animal</mat-label>
+          <!--          <mat-select formControlName="animal">-->
+          <!--            <mat-option *ngFor="let animal of uniqueAnimals" [value]="animal" class="height font-large">-->
+          <!--              {{animal}}-->
+          <!--            </mat-option>-->
+          <!--          </mat-select>-->
+          <input type="text"
+                 matInput
+                 formControlName="animal"
+                 required
+                 name="animal"
+                 [matAutocomplete]="autoGroup"
+                 [(ngModel)]="animal">
+          <mat-autocomplete #autoGroup="matAutocomplete">
+            <mat-option *ngFor="let animal of uniqueAnimals" [value]="animal" >
+              {{animal}}
+            </mat-option>
+          </mat-autocomplete>
+
+
+        </mat-form-field>
+
+<!--        <ng-container *ngIf="checkSelectedAnimal(animal)">-->
+<!--          <ul>-->
+<!--            <li *ngFor="let appointment of filteredAnimals">-->
+<!--              {{appointment.dateTime}}-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </ng-container>-->
+        <div *ngIf="checkSelectedAnimal(animal)">Istoricul de programări pentru {{animal}}:
+          <ul>
+            <li *ngFor="let appointment of appointments">
+              <p *ngIf="appointment.animal === animal">
+                Data programarii: {{appointment.dateTime}}
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <mat-form-field>
+          <mat-label>Alege data și ora</mat-label>
+          <input matInput [ngxMatDatetimePicker]="picker" formControlName="dateTime" class="height font-large">
+          <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #picker [showSeconds]="false" [touchUi]="true"></ngx-mat-datetime-picker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Ați fost repartizat la doctorul :</mat-label>
+          <input matInput formControlName="doctorName"/>
+        </mat-form-field>
+
+        <button mat-raised-button type="submit" (click)="openDialog()" [disabled]="appointmentFormGroup.invalid">Rezervă
+        </button>
+
+      </div>
+    </form>
+  </mat-card>
+</div>
 

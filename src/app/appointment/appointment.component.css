@@ -1,0 +1,52 @@
+.flex-box {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+mat-form-field {
+  width: 50vh;
+}
+
+.padding-top-3 {
+  padding-top: 3%;
+}
+
+.title-style {
+  font-family: 'Raleway', sans-serif;
+  font-size: xxx-large;
+  font-weight: bolder;
+  font-style: italic;
+  text-decoration: underline;
+  color: #7065D9;
+}
+
+.height {
+  height: 5vh;
+}
+
+.font-large {
+  font-size: x-large;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+}
+
+.card {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 15px grey;
+  background-color: #e1d4ff;
+}
+
+.bold {
+  font-weight: bolder;
+}

@@ -57,4 +57,8 @@ export class ViewComponent implements OnInit, AfterViewInit {
     return this.router.navigate(['editeaza']);
   }
 
+  goToHomePage() {
+    return this.router.navigate(['acasa']);
+  }
+
 }

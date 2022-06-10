@@ -19,6 +19,20 @@ import { HomeComponent } from './home/home.component';
 import { EditComponent } from './appointment/edit/edit.component';
 import {MatMenuModule} from "@angular/material/menu";
 import { StatisticsComponent } from './statistics/statistics.component';
+import {NgImageSliderModule} from "ng-image-slider";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatSelectModule} from "@angular/material/select";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {
+  NgxMatDatetimePicker,
+  NgxMatDatetimePickerModule, NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from "@angular-material-components/datetime-picker";
+import { DialogComponent } from './shared/dialog/dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatCardModule} from "@angular/material/card";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
@@ -28,23 +42,36 @@ import { StatisticsComponent } from './statistics/statistics.component';
     ViewComponent,
     HomeComponent,
     EditComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    DialogComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatTableModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSortModule,
-        MatPaginatorModule,
-        MatMenuModule
-    ],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatTableModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatMenuModule,
+    NgImageSliderModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    MatDialogModule,
+    MatCardModule,
+    MatAutocompleteModule
+  ],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

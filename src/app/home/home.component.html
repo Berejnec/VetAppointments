@@ -1,16 +1,35 @@
-<div class="flex-box">
-  <div class="wrapper">
+<div class="flex-box padding-top-5">
     <h1 id="vet-clinic-style">Vet Clinic</h1>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h5 id="motto-style">Mereu alături de animalul tău de companie!</h5>
-    <mat-label>Adaugă o programare</mat-label>
-    <div class="buttons">
-      <button mat-fab><mat-icon>add_card</mat-icon></button>
-      <button mat-fab><mat-icon>visibility</mat-icon></button>
-      <button mat-fab><mat-icon>bar_chart</mat-icon></button>
-    </div>
-  </div>
+</div>
+<div class="flex-box padding-top-5 padding-bottom-2">
+  <h6 id="motto-style">Mereu alături de animalul tău de companie!</h6>
+</div>
+<ul class="wrapper flex-box">
+
+  <li class="icon view">
+    <span class="info">Vizualizează programările</span>
+    <button mat-fab class="view-color" (click)="goToViewPage()"><mat-icon>visibility</mat-icon></button>
+  </li>
+
+  <li class="icon add">
+    <span class="info">Rezervă o programare</span>
+    <button mat-fab class="add-color" (click)="goToAddPage()"><mat-icon>add_card</mat-icon></button>
+  </li>
+
+  <li class="icon statistics">
+    <span class="info">Vizualizează statistici</span>
+    <button mat-fab class="statistics-color" (click)="goToStatisticsPage()"><mat-icon>bar_chart</mat-icon></button>
+  </li>
+
+</ul>
+
+<div id="image-slider">
+  <ng-image-slider
+    #nav
+    [images]="imageObject"
+    [infinite]="true"
+    [autoSlide]="1"
+    [imageSize]="{ width: '25%', height: 250 }"
+    slideImage="1"
+  ></ng-image-slider>
 </div>

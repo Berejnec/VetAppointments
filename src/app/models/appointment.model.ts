@@ -1,7 +1,7 @@
 export interface IAppointment {
   id: number,
   animal: string,
-  dateTime: Date,
+  dateTime: string,
   doctorName: string,
   diagnosis: string,
   status: string
