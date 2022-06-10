@@ -1,0 +1,31 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.icon-padding {
+  padding: 0 14px;
+  transform: scale(1.5);
+}
+
+.title-text {
+  font-size: xxx-large;
+  /*font-family: 'Alegreya', serif;*/
+  font-weight: bolder;
+}
+
+.mat-toolbar {
+  min-height: 75px !important;
+  height: 75px !important;
+  box-shadow: 0 0 15px #ccc;
+  font-weight: bolder;
+}
+
+p {
+  box-shadow: 0 0 30px #2900a6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}

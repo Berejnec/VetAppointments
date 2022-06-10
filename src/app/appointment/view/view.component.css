@@ -1,0 +1,78 @@
+.flexbox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+}
+
+table {
+  width: 100%;
+  text-align: left !important;
+  background-color: #cab4ff;
+  /*font-family: 'Alegreya', serif;*/
+}
+
+.details {
+  text-align: center;
+}
+
+.table-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  padding-bottom: 2%;
+}
+
+th, td {
+  color: #000000;
+}
+
+.font-1 {
+  font-family: 'Alegreya', serif;
+  font-size: 18px;
+}
+
+.font-1-xx-large {
+  font-family: 'Alegreya', serif;
+  font-size: xx-large;
+}
+
+mat-form-field {
+  font-size: 14px;
+  width: 50%;
+}
+
+.mat-paginator {
+  background-color: #cab4ff;
+}
+
+.paginator-shadow {
+  padding-top: 1px;
+  box-shadow: 0 0 7px grey;
+}
+
+.padding-bottom-1 {
+  padding-bottom: 1%;
+}
+
+#no-shadow-top {
+  overflow-y: hidden;
+  padding: 0 10px 10px 10px;
+  margin: 0 -10px;
+}
+
+.table-header {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+th {
+  font-family: 'Alegreya', serif;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.edit-cell {
+  text-align: center !important;
+}

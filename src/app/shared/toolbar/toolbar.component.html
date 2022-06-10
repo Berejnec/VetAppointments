@@ -1,0 +1,31 @@
+<p>
+  <mat-toolbar color="primary" class="raleway-font">
+    <a (click)="gotoHomePage()">
+      <mat-icon class="icon-padding">pets</mat-icon>
+      <span class="title-text">Vet Clinic</span>
+    </a>
+    <span class="spacer"></span>
+    Meniu
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="gotoHomePage()">
+        <mat-icon>home</mat-icon>
+        <span>Pagina principală</span>
+      </button>
+      <button mat-menu-item (click)="goToAddPage()">
+        <mat-icon>add_card</mat-icon>
+        <span>Adaugă programare</span>
+      </button>
+      <button mat-menu-item (click)="goToViewPage()">
+        <mat-icon>visibility</mat-icon>
+        <span>Vizualizează programări</span>
+      </button>
+      <button mat-menu-item (click)="goToStatisticsPage()">
+        <mat-icon>bar_chart</mat-icon>
+        <span>Statistici</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+</p>

@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@1,500&family=Hahmlet&display=swap');
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Hahmlet', serif;
+  font-weight: bold;
+  background-color: #d6f8ff;
+}
+
+.raleway-font {
+  font-family: 'Raleway', sans-serif;
+}
