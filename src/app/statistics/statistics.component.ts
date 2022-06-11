@@ -17,6 +17,7 @@ export type ChartOptions = {
   title: ApexTitleSubtitle;
   responsive: ApexResponsive[];
   labels: any;
+  fontFamily: any;
 };
 
 export type ChartOptions2 = {
@@ -26,6 +27,7 @@ export type ChartOptions2 = {
   labels: any;
   theme: ApexTheme;
   title: ApexTitleSubtitle;
+  fontFamily: any;
 };
 
 export type ChartOptions3 = {
@@ -35,6 +37,7 @@ export type ChartOptions3 = {
   labels: any;
   theme: ApexTheme;
   title: ApexTitleSubtitle;
+  fontFamily: any;
 };
 
 @Component({
@@ -76,7 +79,8 @@ export class StatisticsComponent implements OnInit {
             }
           }
         }
-      ]
+      ],
+      fontFamily: `'Raleway', sans-serif`
     };
 
     this.chartOptions2 = {
@@ -110,7 +114,8 @@ export class StatisticsComponent implements OnInit {
             }
           }
         }
-      ]
+      ],
+      fontFamily: `'Raleway', sans-serif`
     };
 
     this.chartOptions3 = {
@@ -135,7 +140,8 @@ export class StatisticsComponent implements OnInit {
             }
           }
         }
-      ]
+      ],
+      fontFamily: `Raleway, sans-serif`
     };
   }
 

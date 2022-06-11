@@ -25,11 +25,18 @@
           </mat-autocomplete>
         </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Alege data și ora</mat-label>
-          <input matInput [ngxMatDatetimePicker]="picker" formControlName="dateTime" class="height font-large" [disabled]="statusIsConfirmed(appointment)">
-          <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
-          <ngx-mat-datetime-picker #picker [showSeconds]="false" [touchUi]="true"></ngx-mat-datetime-picker>
+<!--        <mat-form-field>-->
+<!--          <mat-label>Alege data și ora</mat-label>-->
+<!--          <input matInput [ngxMatDatetimePicker]="picker" formControlName="dateTime" class="height font-large" [disabled]="statusIsConfirmed(appointment)">-->
+<!--          <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>-->
+<!--          <ngx-mat-datetime-picker #picker [showSeconds]="false" [touchUi]="true"></ngx-mat-datetime-picker>-->
+<!--        </mat-form-field>-->
+
+        <mat-form-field appearance="fill">
+          <mat-label>Alege data programarii</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dateTime" (dateChange)="changeDatePicker()">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field appearance="outline" >

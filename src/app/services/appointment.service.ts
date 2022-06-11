@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {APPOINTMENTS} from "../mock-data/appointment.data";
 import {Observable, of, Observer} from "rxjs";
 import {IAppointment} from "../models/appointment.model";
+import {imageLinks} from "../mock-data/image.links";
 
 @Injectable({
   providedIn: 'root'
@@ -29,12 +30,16 @@ export class AppointmentService {
     });
   }
 
-  saveAppointment() {
-    return
+  getAppointmentById(id: string) {
+    return APPOINTMENTS.find(appointment => appointment.id === id);
   }
 
   updateAppointment(appointment: IAppointment) {
     let appointmentIndex = APPOINTMENTS.findIndex((obj) => obj.id == appointment.id);
     APPOINTMENTS[appointmentIndex] = appointment;
+  }
+
+  getImageLinks() {
+    return of(imageLinks);
   }
 }

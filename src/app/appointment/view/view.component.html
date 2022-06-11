@@ -33,7 +33,7 @@
       <ng-container matColumnDef="dateTime">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Data si ora</th>
         <td mat-cell *matCellDef="let appointment">
-          {{appointment.dateTime | date: 'dd-MM-yyyy HH:mm'}}
+          {{appointment.dateTime | date: 'dd-MM-yyyy'}}
         </td>
       </ng-container>
 

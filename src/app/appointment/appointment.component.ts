@@ -6,6 +6,7 @@ import {APPOINTMENTS} from "../mock-data/appointment.data";
 import {Router} from "@angular/router";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {DialogComponent} from "../shared/dialog/dialog.component";
+import {NavigationService} from "../services/navigation.service";
 
 @Component({
   selector: 'app-appointment',
@@ -32,7 +33,8 @@ export class AppointmentComponent implements OnInit {
   constructor(
     private appointmentService: AppointmentService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private navigationService: NavigationService
   ) {
     this.appointmentFormGroup = new FormGroup({
       id: new FormControl(this.randomID),
@@ -66,6 +68,6 @@ export class AppointmentComponent implements OnInit {
   }
 
   goToHomePage() {
-
+    this.navigationService.goToHomePage().then();
   }
 }

@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {IAppointment} from "../../models/appointment.model";
 import {APPOINTMENTS} from "../../mock-data/appointment.data";
 import {AppointmentService} from "../../services/appointment.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../../shared/dialog/dialog.component";
 
@@ -16,6 +16,16 @@ export class EditComponent implements OnInit {
 
   public appointmentFormGroup: FormGroup;
 
+  editedAppointment?: IAppointment;
+
+  editAppointmentFormGroup = new FormGroup({
+    animal: new FormControl(),
+    dateTime: new FormControl(),
+    doctorName: new FormControl(),
+    diagnosis: new FormControl()
+  });
+  status: FormControl = new FormControl();
+
   appointments!: Array<IAppointment>;
 
   public animals = APPOINTMENTS.map(appointment => appointment.animal);
@@ -26,8 +36,10 @@ export class EditComponent implements OnInit {
 
   confirmed = false;
 
-  constructor(
-    private appointmentService: AppointmentService, private router: Router) {
+  constructor(private appointmentService: AppointmentService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private formBuilder: FormBuilder) {
     this.appointmentFormGroup = new FormGroup({
       id: new FormControl(""),
       animal: new FormControl({value: '', disabled: this.confirmed}, [Validators.required]),
@@ -37,6 +49,7 @@ export class EditComponent implements OnInit {
       status: new FormControl("")
     })
   }
+
 
   private _appointment!: IAppointment;
 
@@ -52,6 +65,7 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.appointmentService.getAppointments().subscribe(appointments => this.appointments = appointments);
+    this.appointment
   }
 
   onSubmit() {
@@ -67,4 +81,7 @@ export class EditComponent implements OnInit {
     return false;
   }
 
+  changeDatePicker() {
+    this.appointmentFormGroup.value.dateTime = this.appointmentFormGroup.value.dateTime.toDateString();
+  }
 }

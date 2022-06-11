@@ -19,7 +19,10 @@ export class EditPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.appointmentService.getAppointment(this.navigationService.getParam(this.activatedRoute, 'id'))
-      .subscribe(appointment => this.appointment = appointment);
+      .subscribe(appointment => {
+        this.appointment = appointment;
+        this.appointment.dateTime = appointment.dateTime;
+      });
   }
 
   goBack() {

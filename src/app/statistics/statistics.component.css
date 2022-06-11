@@ -5,7 +5,8 @@
 }
 
 #chart {
-  max-width: 380px;
+  max-width: 500px;
+  background-color: yellow;
   /*margin: 35px auto;*/
   /*padding: 0;*/
 }
@@ -27,7 +28,7 @@ h1 {
   font-family: 'Raleway', sans-serif;
   font-weight: bolder;
   font-size: xxx-large;
-  padding-top: 5%
+  padding-top: 5%;
 }
 
 .wrapper {
@@ -35,3 +36,4 @@ h1 {
   flex-direction: column;
   text-align: center;
 }
+
