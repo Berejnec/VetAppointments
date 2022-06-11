@@ -1,5 +1,5 @@
 export interface IAppointment {
-  id: number,
+  id: string,
   animal: string,
   dateTime: string,
   doctorName: string,

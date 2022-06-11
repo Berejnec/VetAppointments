@@ -29,8 +29,6 @@ export class AppointmentComponent implements OnInit {
 
   animal: string = '';
 
-  // filteredAnimals: IAppointment[] = this.appointments.filter(element => element.animal === this.animal);
-
   constructor(
     private appointmentService: AppointmentService,
     private router: Router,
@@ -52,7 +50,8 @@ export class AppointmentComponent implements OnInit {
 
   onSubmit() {
     console.log(this.appointmentFormGroup.value);
-    APPOINTMENTS.push(this.appointmentFormGroup.value);
+    // APPOINTMENTS.push(this.appointmentFormGroup.value);
+    this.appointmentService.addAppointment(this.appointmentFormGroup.value);
     setTimeout(() => {
       this.router.navigate(['vizualizare']);
     }, 2000);
@@ -62,24 +61,11 @@ export class AppointmentComponent implements OnInit {
     this.dialog.open(DialogComponent);
   }
 
-  RequireMatch(control: AbstractControl) {
-    const selection: any = control.value;
-    if(typeof selection === 'string') {
-      return {
-        incorrect: true
-      };
-    }
-    return null;
-  }
-
   checkSelectedAnimal(animal: string) {
     return this.animals.includes(this.animal);
   }
 
-  showDetails(animal: string) {
-    this.appointments.forEach(appointment => {
-      return appointment.animal === animal;
-    })
-  }
+  goToHomePage() {
 
+  }
 }

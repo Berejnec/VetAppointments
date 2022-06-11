@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {APPOINTMENTS} from "../../mock-data/appointment.data";
 import {Router} from "@angular/router";
 import {IAppointment} from "../../models/appointment.model";
@@ -6,6 +6,9 @@ import {MatTable, MatTableDataSource} from "@angular/material/table";
 import {MatSort, MatSortable} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import {formatDate} from "@angular/common";
+import {NavigationService} from "../../services/navigation.service";
+import {of} from "rxjs";
+import {AppointmentService} from "../../services/appointment.service";
 
 @Component({
   selector: 'app-view',
@@ -15,9 +18,10 @@ import {formatDate} from "@angular/common";
 export class ViewComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['id', 'animal', 'dateTime', 'doctorName', 'diagnosis', 'status', 'edit'];
-  dataSource = new MatTableDataSource(APPOINTMENTS);
+  // dataSource = new MatTableDataSource(APPOINTMENTS);
+  dataSource!: MatTableDataSource<IAppointment>;
 
-  changeDate(date : Date) {
+  changeDate(date: Date) {
     return formatDate(date.toDateString(), 'dd-MM-yyyy', '+0430')
   }
 
@@ -25,11 +29,14 @@ export class ViewComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private navigationService: NavigationService,
+              private appointmentService: AppointmentService) {
   }
 
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    this.appointmentService.getAppointments().subscribe(appointments => this.dataSource = new MatTableDataSource<IAppointment>(appointments));
   }
 
   goToAdd() {
@@ -58,7 +65,16 @@ export class ViewComponent implements OnInit, AfterViewInit {
   }
 
   goToHomePage() {
-    return this.router.navigate(['acasa']);
+    this.navigationService.goToHomePage().then();
   }
 
+  gotToAppointment(appointment: IAppointment): Promise<boolean> {
+    return this.navigationService.openCustomer(appointment.id);
+  }
+
+  refresh() {
+    this.appointmentService.getAppointments().subscribe((appointments: IAppointment[]) => {
+      this.dataSource.data = appointments;
+    })
+  }
 }

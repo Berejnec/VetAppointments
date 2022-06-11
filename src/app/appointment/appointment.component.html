@@ -1,4 +1,8 @@
-<div class="wrapper">
+<div class="back-button">
+  <button mat-button class="font-1 back-button-color" (click)="goToHomePage()"><mat-icon>home</mat-icon> Pagina principală</button>
+</div>
+
+<div class="wrapper padding-bottom-5">
   <mat-card class="card">
     <form [formGroup]="appointmentFormGroup" (ngSubmit)="onSubmit()">
       <mat-card-header>
@@ -58,7 +62,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Ați fost repartizat la doctorul :</mat-label>
-          <input matInput formControlName="doctorName"/>
+          <input matInput formControlName="doctorName" readonly/>
         </mat-form-field>
 
         <button mat-raised-button type="submit" (click)="openDialog()" [disabled]="appointmentFormGroup.invalid">Rezervă

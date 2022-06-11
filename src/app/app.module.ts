@@ -33,6 +33,7 @@ import { DialogComponent } from './shared/dialog/dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatCardModule} from "@angular/material/card";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { EditPageComponent } from './appointment/edit-page/edit-page.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     HomeComponent,
     EditComponent,
     StatisticsComponent,
-    DialogComponent
+    DialogComponent,
+    EditPageComponent
   ],
   imports: [
     BrowserModule,

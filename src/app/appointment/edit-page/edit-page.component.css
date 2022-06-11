@@ -1,0 +1,15 @@
+.back-button {
+  position: relative;
+}
+
+.back-button-color {
+  background-color: #c88ff3;
+  position: relative;
+  left: 37%;
+  top: 1vw;
+}
+
+.back-button-color:hover {
+  background-color: #ae82fc;
+  color: white;
+}

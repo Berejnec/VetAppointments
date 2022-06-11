@@ -1,1 +1,53 @@
-<p>Editează programare</p>
+<div class="wrapper padding-bottom-5">
+  <mat-card class="card">
+    <form [formGroup]="appointmentFormGroup" (ngSubmit)="onSubmit()">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>brush</mat-icon>
+        <mat-card-title class="font-large raleway-font bold">Editează programare</mat-card-title>
+        <mat-card-subtitle>Status programare: {{appointment.status}}</mat-card-subtitle>
+      </mat-card-header>
+      <div class="flex-box">
+
+        <mat-form-field appearance="fill" class="padding-top-5">
+          <mat-label>Nume animal</mat-label>
+          <input type="text"
+                 matInput
+                 formControlName="animal"
+                 required
+                 name="animal"
+                 [matAutocomplete]="autoGroup"
+                 [readonly]="confirmed"
+          >
+          <mat-autocomplete #autoGroup="matAutocomplete" >
+            <mat-option *ngFor="let animal of uniqueAnimals" [value]="animal" [disabled]="statusIsConfirmed(appointment)">
+              {{animal}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Alege data și ora</mat-label>
+          <input matInput [ngxMatDatetimePicker]="picker" formControlName="dateTime" class="height font-large" [disabled]="statusIsConfirmed(appointment)">
+          <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #picker [showSeconds]="false" [touchUi]="true"></ngx-mat-datetime-picker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" >
+          <mat-label>Ați fost repartizat la doctorul :</mat-label>
+          <input matInput formControlName="doctorName" [readonly]="confirmed"/>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Diagnostic</mat-label>
+          <input matInput formControlName="diagnosis">
+        </mat-form-field>
+
+        <button mat-raised-button type="submit">Salvează
+        </button>
+
+      </div>
+    </form>
+  </mat-card>
+</div>
+
+

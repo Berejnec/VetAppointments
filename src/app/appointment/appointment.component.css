@@ -6,9 +6,24 @@
   align-items: center;
 }
 
-
 mat-form-field {
   width: 50vh;
+}
+
+.back-button {
+  position: relative;
+}
+
+.back-button-color {
+  background-color: #c88ff3;
+  position: relative;
+  left: 37%;
+  top: 2vw;
+}
+
+.back-button-color:hover {
+  background-color: #ae82fc;
+  color: white;
 }
 
 .padding-top-3 {
