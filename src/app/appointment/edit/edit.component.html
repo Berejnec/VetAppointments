@@ -17,6 +17,7 @@
                  name="animal"
                  [matAutocomplete]="autoGroup"
                  [readonly]="confirmed"
+
           >
           <mat-error *ngIf="appointmentFormGroup?.get('animal')?.invalid">
             <span class="padding-bottom-5">Numele de animal este necesar</span>
@@ -36,7 +37,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Diagnostic</mat-label>
-          <input matInput formControlName="diagnosis" required>
+          <input matInput formControlName="diagnosis" required [readonly]="appointment.status === 'Incheiata'">
           <mat-error *ngIf="appointmentFormGroup?.get('diagnosis')?.invalid">
             <span class="padding-bottom-5">Diagnosticul este necesar</span>
           </mat-error>
@@ -44,14 +45,14 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Schimba status:</mat-label>
-          <mat-select formControlName="status" required>
+          <mat-select formControlName="status" required [disabled]="appointment.status === 'Incheiata'">
             <mat-option value="Creata">Creata</mat-option>
             <mat-option value="Confirmata">Confirmata</mat-option>
             <mat-option value="Incheiata" [disabled]="appointment.diagnosis === ''">Incheiata</mat-option>
           </mat-select>
         </mat-form-field>
 
-        <button mat-raised-button type="submit" [disabled]="clicked">Salvează</button>
+        <button *ngIf="appointment.status !== 'Incheiata'" mat-raised-button type="submit" [disabled]="clicked">Salvează</button>
         <h3 *ngIf="clicked">
           <p class="raleway-font bold font-large padding-top-5">Programare editata!</p>
         </h3>

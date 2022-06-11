@@ -33,7 +33,7 @@ export class EditComponent implements OnInit {
     this.appointmentFormGroup = new FormGroup({
       id: new FormControl(""),
       animal: new FormControl({value: '', disabled: this.confirmed}, [Validators.required]),
-      dateTime: new FormControl("", [Validators.required]),
+      dateTime: new FormControl([Validators.required]),
       doctorName: new FormControl({value: '', disabled: this.confirmed}, [Validators.required]),
       diagnosis: new FormControl(''),
       status: new FormControl("")
@@ -55,6 +55,7 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.appointmentService.getAppointments().subscribe(appointments => this.appointments = appointments);
+    console.log(APPOINTMENTS);
   }
 
   onSubmit() {
@@ -63,7 +64,7 @@ export class EditComponent implements OnInit {
   }
 
   statusIsConfirmed(appointment: IAppointment) {
-    if(appointment.status === 'Confirmata') {
+    if(appointment.status === 'Confirmata' || appointment.status === 'Incheiata') {
       this.confirmed = true;
       return true;
     }

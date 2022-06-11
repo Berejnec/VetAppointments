@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {DialogComponent} from "../shared/dialog/dialog.component";
 import {NavigationService} from "../services/navigation.service";
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-appointment',
@@ -51,11 +52,16 @@ export class AppointmentComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.appointmentFormGroup.value);
+
     // APPOINTMENTS.push(this.appointmentFormGroup.value);
+    let val = this.appointmentFormGroup.get('dateTime')?.value;
+    val = formatDate(val, 'M/dd/yyyy HH:mm', 'en');
+    this.appointmentFormGroup.controls['dateTime'].setValue(val);
     this.appointmentService.addAppointment(this.appointmentFormGroup.value);
+    console.log(this.appointmentFormGroup.value);
+    console.log(APPOINTMENTS);
     setTimeout(() => {
-      this.router.navigate(['acasa']);
+      return this.router.navigate(['acasa']);
     }, 3000);
   }
 

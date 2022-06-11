@@ -58,7 +58,8 @@ export class ViewComponent implements OnInit, AfterViewInit {
   }
 
   gotToAppointment(appointment: IAppointment): Promise<boolean> {
-    return this.navigationService.openCustomer(appointment.id);
+    return this.navigationService.openAppointment(appointment.id);
+
   }
 
   refresh() {

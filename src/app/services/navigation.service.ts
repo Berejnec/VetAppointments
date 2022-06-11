@@ -15,7 +15,7 @@ export class NavigationService {
     return activatedRoute.snapshot.params[paramName];
   }
 
-  openCustomer(id: string): Promise<boolean> {
+  openAppointment(id: string): Promise<boolean> {
     return this.router.navigate(['editeaza', id]);
   }
 

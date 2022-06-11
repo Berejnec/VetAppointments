@@ -87,7 +87,7 @@
 .wrapper .view:hover,
 .wrapper .view:hover .info,
 .wrapper .view:hover .info::before {
-  background: #124e9a;
+  background: #3382ec;
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
   color: #ffffff;

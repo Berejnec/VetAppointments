@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {APPOINTMENTS} from "../mock-data/appointment.data";
-import {Observable, of, Observer} from "rxjs";
+import {Observable, of} from "rxjs";
 import {IAppointment} from "../models/appointment.model";
 import {imageLinks} from "../mock-data/image.links";
 
@@ -12,7 +12,7 @@ export class AppointmentService {
   constructor() { }
 
   addAppointment(appointment: IAppointment) {
-    APPOINTMENTS.push(appointment);
+    of(APPOINTMENTS).subscribe(map => APPOINTMENTS.push(appointment));
   }
 
   getAppointments(): Observable<Array<IAppointment>> {
@@ -26,6 +26,17 @@ export class AppointmentService {
   getAppointment(id: string): Observable<IAppointment> {
     return Observable.create((observer: { next: (arg0: IAppointment | undefined) => void; complete: () => void; }) => {
       observer.next(APPOINTMENTS.find(appointment => appointment.id === id));
+      observer.complete();
+    });
+  }
+
+  getAppointmentManual(id: string){
+    return APPOINTMENTS!.find(app => app.id === id);
+  }
+
+  getAppointmentByName(name: string): Observable<IAppointment> {
+    return Observable.create((observer: { next: (arg0: IAppointment | undefined) => void; complete: () => void; }) => {
+      observer.next(APPOINTMENTS.find(appointment => appointment.animal === name));
       observer.complete();
     });
   }

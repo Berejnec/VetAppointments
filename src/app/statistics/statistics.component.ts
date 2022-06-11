@@ -10,6 +10,7 @@ import {
 } from "ng-apexcharts";
 import {APPOINTMENTS} from "../mock-data/appointment.data";
 import {IAppointment} from "../models/appointment.model";
+import {NavigationService} from "../services/navigation.service";
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -56,7 +57,7 @@ export class StatisticsComponent implements OnInit {
   @ViewChild("chart3") chart3!: ChartComponent;
   public chartOptions3!: Partial<ChartOptions2> | any;
 
-  constructor(private appointmentService: AppointmentService) {
+  constructor(private appointmentService: AppointmentService, private navigationService: NavigationService) {
     this.chartOptions = {
       series: [3, 5, 6, 1],
       chart: {
@@ -176,4 +177,7 @@ export class StatisticsComponent implements OnInit {
 //   }
 //
 // }
+  goToHomePage() {
+    return this.navigationService.goToHomePage();
+  }
 }
