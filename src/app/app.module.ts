@@ -34,6 +34,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatCardModule} from "@angular/material/card";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { EditPageComponent } from './appointment/edit-page/edit-page.component';
+import {NgApexchartsModule} from "ng-apexcharts";
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { EditPageComponent } from './appointment/edit-page/edit-page.component';
     NgxMatNativeDateModule,
     MatDialogModule,
     MatCardModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    NgApexchartsModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

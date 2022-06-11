@@ -1,0 +1,37 @@
+#chart2 {
+  max-width: 380px;
+  /*margin: 35px auto;*/
+  /*padding: 0;*/
+}
+
+#chart {
+  max-width: 380px;
+  /*margin: 35px auto;*/
+  /*padding: 0;*/
+}
+
+#chart3 {
+  max-width: 380px;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: space-around;
+}
+
+.padding-top {
+  padding-top: 10%;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
+  font-size: xxx-large;
+  padding-top: 5%
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
