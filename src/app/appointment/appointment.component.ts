@@ -38,9 +38,9 @@ export class AppointmentComponent implements OnInit {
   ) {
     this.appointmentFormGroup = new FormGroup({
       id: new FormControl(this.randomID),
-      animal: new FormControl("", [Validators.required]),
-      dateTime: new FormControl("", [Validators.required]),
-      doctorName: new FormControl(this.randomDoctor, [Validators.required]),
+      animal: new FormControl(""),
+      dateTime: new FormControl(""),
+      doctorName: new FormControl(this.randomDoctor),
       diagnosis: new FormControl(""),
       status: new FormControl("Creata")
     })
@@ -55,8 +55,8 @@ export class AppointmentComponent implements OnInit {
     // APPOINTMENTS.push(this.appointmentFormGroup.value);
     this.appointmentService.addAppointment(this.appointmentFormGroup.value);
     setTimeout(() => {
-      this.router.navigate(['vizualizare']);
-    }, 2000);
+      this.router.navigate(['acasa']);
+    }, 3000);
   }
 
   openDialog() {

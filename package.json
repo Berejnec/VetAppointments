@@ -24,6 +24,7 @@
     "apexcharts": "^3.35.3",
     "ng-apexcharts": "^1.7.1",
     "ng-image-slider": "^2.8.0",
+    "primeng": "^13.4.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

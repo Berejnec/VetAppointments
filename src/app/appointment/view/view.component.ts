@@ -18,12 +18,8 @@ import {AppointmentService} from "../../services/appointment.service";
 export class ViewComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['id', 'animal', 'dateTime', 'doctorName', 'diagnosis', 'status', 'edit'];
-  // dataSource = new MatTableDataSource(APPOINTMENTS);
   dataSource!: MatTableDataSource<IAppointment>;
 
-  changeDate(date: Date) {
-    return formatDate(date.toDateString(), 'dd-MM-yyyy', '+0430')
-  }
 
   @ViewChild(MatTable) table!: MatTable<IAppointment>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -37,10 +33,6 @@ export class ViewComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.appointmentService.getAppointments().subscribe(appointments => this.dataSource = new MatTableDataSource<IAppointment>(appointments));
-  }
-
-  goToAdd() {
-    return this.router.navigate(['adauga']);
   }
 
   applyFilter(event: Event) {
@@ -60,9 +52,6 @@ export class ViewComponent implements OnInit, AfterViewInit {
     };
   }
 
-  goToEditPage() {
-    return this.router.navigate(['editeaza']);
-  }
 
   goToHomePage() {
     this.navigationService.goToHomePage().then();

@@ -1,0 +1,13 @@
+.bolder {
+  font-weight: bolder;
+}
+
+.close-button {
+  background-color: #7d5dab;
+  color: white;
+}
+
+.close-button:hover {
+  background-color: #b897f3;
+  color: black;
+}

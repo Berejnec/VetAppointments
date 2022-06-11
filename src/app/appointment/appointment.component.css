@@ -40,11 +40,11 @@ mat-form-field {
 }
 
 .height {
-  height: 5vh;
+  height: 3vh;
 }
 
 .font-large {
-  font-size: x-large;
+  font-size: larger;
 }
 
 .wrapper {
@@ -64,4 +64,16 @@ mat-form-field {
 
 .bold {
   font-weight: bolder;
+}
+
+.input-doctor {
+  cursor: initial;
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+ngx-mat-datetime-picker {
+  height: 100px !important;
 }

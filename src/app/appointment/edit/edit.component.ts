@@ -16,16 +16,6 @@ export class EditComponent implements OnInit {
 
   public appointmentFormGroup: FormGroup;
 
-  editedAppointment?: IAppointment;
-
-  editAppointmentFormGroup = new FormGroup({
-    animal: new FormControl(),
-    dateTime: new FormControl(),
-    doctorName: new FormControl(),
-    diagnosis: new FormControl()
-  });
-  status: FormControl = new FormControl();
-
   appointments!: Array<IAppointment>;
 
   public animals = APPOINTMENTS.map(appointment => appointment.animal);
@@ -34,24 +24,24 @@ export class EditComponent implements OnInit {
 
   animal: string = '';
 
-  confirmed = false;
+  clicked = false;
 
-  constructor(private appointmentService: AppointmentService,
-              private router: Router,
-              private activatedRoute: ActivatedRoute,
-              private formBuilder: FormBuilder) {
+  confirmed = false;
+  statuses: string[] = ['Creata', 'Confirmata', 'Incheiata'];
+
+  constructor(private appointmentService: AppointmentService) {
     this.appointmentFormGroup = new FormGroup({
       id: new FormControl(""),
       animal: new FormControl({value: '', disabled: this.confirmed}, [Validators.required]),
       dateTime: new FormControl("", [Validators.required]),
       doctorName: new FormControl({value: '', disabled: this.confirmed}, [Validators.required]),
-      diagnosis: new FormControl(""),
+      diagnosis: new FormControl(''),
       status: new FormControl("")
     })
   }
 
 
-  private _appointment!: IAppointment;
+  public _appointment!: IAppointment;
 
   get appointment(): IAppointment {
     return this._appointment;
@@ -65,12 +55,11 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.appointmentService.getAppointments().subscribe(appointments => this.appointments = appointments);
-    this.appointment
   }
 
   onSubmit() {
       this.appointmentService.updateAppointment(this.appointmentFormGroup.value);
-
+      this.clicked = true;
   }
 
   statusIsConfirmed(appointment: IAppointment) {
@@ -79,9 +68,5 @@ export class EditComponent implements OnInit {
       return true;
     }
     return false;
-  }
-
-  changeDatePicker() {
-    this.appointmentFormGroup.value.dateTime = this.appointmentFormGroup.value.dateTime.toDateString();
   }
 }

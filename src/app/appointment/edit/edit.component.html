@@ -4,7 +4,7 @@
       <mat-card-header>
         <mat-icon mat-card-avatar>brush</mat-icon>
         <mat-card-title class="font-large raleway-font bold">Editează programare</mat-card-title>
-        <mat-card-subtitle>Status programare: {{appointment.status}}</mat-card-subtitle>
+        <mat-card-subtitle>Data programarii: {{appointment.dateTime | date: 'MM/dd/yyyy HH:mm'}} <br> Status programare: {{appointment.status}}</mat-card-subtitle>
       </mat-card-header>
       <div class="flex-box">
 
@@ -18,6 +18,9 @@
                  [matAutocomplete]="autoGroup"
                  [readonly]="confirmed"
           >
+          <mat-error *ngIf="appointmentFormGroup?.get('animal')?.invalid">
+            <span class="padding-bottom-5">Numele de animal este necesar</span>
+          </mat-error>
           <mat-autocomplete #autoGroup="matAutocomplete" >
             <mat-option *ngFor="let animal of uniqueAnimals" [value]="animal" [disabled]="statusIsConfirmed(appointment)">
               {{animal}}
@@ -25,33 +28,33 @@
           </mat-autocomplete>
         </mat-form-field>
 
-<!--        <mat-form-field>-->
-<!--          <mat-label>Alege data și ora</mat-label>-->
-<!--          <input matInput [ngxMatDatetimePicker]="picker" formControlName="dateTime" class="height font-large" [disabled]="statusIsConfirmed(appointment)">-->
-<!--          <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>-->
-<!--          <ngx-mat-datetime-picker #picker [showSeconds]="false" [touchUi]="true"></ngx-mat-datetime-picker>-->
-<!--        </mat-form-field>-->
-
-        <mat-form-field appearance="fill">
-          <mat-label>Alege data programarii</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="dateTime" (dateChange)="changeDatePicker()">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
 
         <mat-form-field appearance="outline" >
           <mat-label>Ați fost repartizat la doctorul :</mat-label>
-          <input matInput formControlName="doctorName" [readonly]="confirmed"/>
+          <input matInput class="input-doctor" formControlName="doctorName" [readonly]="confirmed"/>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Diagnostic</mat-label>
-          <input matInput formControlName="diagnosis">
+          <input matInput formControlName="diagnosis" required>
+          <mat-error *ngIf="appointmentFormGroup?.get('diagnosis')?.invalid">
+            <span class="padding-bottom-5">Diagnosticul este necesar</span>
+          </mat-error>
         </mat-form-field>
 
-        <button mat-raised-button type="submit">Salvează
-        </button>
+        <mat-form-field appearance="outline">
+          <mat-label>Schimba status:</mat-label>
+          <mat-select formControlName="status" required>
+            <mat-option value="Creata">Creata</mat-option>
+            <mat-option value="Confirmata">Confirmata</mat-option>
+            <mat-option value="Incheiata" [disabled]="appointment.diagnosis === ''">Incheiata</mat-option>
+          </mat-select>
+        </mat-form-field>
 
+        <button mat-raised-button type="submit" [disabled]="clicked">Salvează</button>
+        <h3 *ngIf="clicked">
+          <p class="raleway-font bold font-large padding-top-5">Programare editata!</p>
+        </h3>
       </div>
     </form>
   </mat-card>
