@@ -41,9 +41,9 @@ export class ViewComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.sort.sort(({ id: 'dateTime', start: 'desc'}) as MatSortable);
-    this.dataSource.paginator = this.paginator;
+    // this.sort.sort(({ id: 'dateTime', start: 'desc'}) as MatSortable);
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
     this.dataSource.sortingDataAccessor = (item, property) => {
       switch (property) {
         case 'dateTime': return new Date(item.dateTime).getTime();
@@ -54,7 +54,7 @@ export class ViewComponent implements OnInit, AfterViewInit {
 
 
   goToHomePage() {
-    this.navigationService.goToHomePage().then();
+    return this.navigationService.openHomePage();
   }
 
   gotToAppointment(appointment: IAppointment): Promise<boolean> {

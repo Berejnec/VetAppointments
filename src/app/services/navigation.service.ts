@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {IAppointment} from "../models/appointment.model";
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +22,20 @@ export class NavigationService {
     return this.router.navigate(['vizualizare']);
   }
 
-  goToHomePage(): Promise<boolean> {
+  openHomePage(): Promise<boolean> {
     return this.router.navigate(['acasa']);
   }
 
+  openViewPage(): Promise<boolean> {
+    return this.router.navigate(['vizualizare']);
+  }
+
+  openAddPage(): Promise<boolean> {
+    return this.router.navigate(['adauga']);
+  }
+
+  openStatisticsPage() {
+    return this.router.navigate(['statistici']);
+  }
 
 }

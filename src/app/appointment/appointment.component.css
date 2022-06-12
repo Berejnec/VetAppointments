@@ -54,10 +54,10 @@ mat-form-field {
 }
 
 .card {
-  width: inherit;
-  height: inherit;
   display: flex;
   justify-content: center;
+  width: inherit;
+  height: inherit;
   box-shadow: 0 0 15px grey;
   background-color: #e1d4ff;
 }

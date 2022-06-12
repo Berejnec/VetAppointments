@@ -1,5 +1,8 @@
 <div class="back-button">
-  <button mat-raised-button class="font-1 back-button-color" (click)="goToHomePage()"><mat-icon>home</mat-icon> Pagina principală</button>
+  <button mat-raised-button class="font-1 back-button-color" (click)="goToHomePage()">
+    <mat-icon>home</mat-icon>
+    Pagina principală
+  </button>
 </div>
 
 <div class="wrapper padding-bottom-5">
@@ -30,8 +33,6 @@
               {{animal}}
             </mat-option>
           </mat-autocomplete>
-
-
         </mat-form-field>
 
 
@@ -50,7 +51,8 @@
 
         <mat-form-field>
           <mat-label class="font-large">Alege data și ora</mat-label>
-          <input matInput [ngxMatDatetimePicker]="picker" formControlName="dateTime" class="height font-large raleway-font" required>
+          <input matInput [ngxMatDatetimePicker]="picker" formControlName="dateTime"
+                 class="height font-large raleway-font" required>
           <mat-error *ngIf="appointmentFormGroup?.get('dateTime')?.invalid">
             <span class="padding-bottom-5">Data si ora este necesara</span>
           </mat-error>
@@ -63,8 +65,7 @@
           <input matInput class="input-doctor raleway-font" formControlName="doctorName" readonly/>
         </mat-form-field>
 
-        <button mat-raised-button type="submit" (click)="openDialog()" [disabled]="appointmentFormGroup.invalid">Rezervă
-        </button>
+        <button mat-raised-button type="submit" (click)="openDialog()" [disabled]="appointmentFormGroup.invalid">Rezervă</button>
 
       </div>
     </form>

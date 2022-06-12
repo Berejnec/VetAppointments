@@ -9,14 +9,14 @@ import {imageLinks} from "../mock-data/image.links";
 })
 export class AppointmentService {
 
-  constructor() { }
+  constructor() {
+  }
 
   addAppointment(appointment: IAppointment) {
     of(APPOINTMENTS).subscribe(map => APPOINTMENTS.push(appointment));
   }
 
   getAppointments(): Observable<Array<IAppointment>> {
-    // return of(APPOINTMENTS);
     return Observable.create((observer: { next: (arg0: IAppointment[]) => void; complete: () => void; }) => {
       observer.next(APPOINTMENTS);
       observer.complete();
@@ -30,7 +30,7 @@ export class AppointmentService {
     });
   }
 
-  getAppointmentManual(id: string){
+  getAppointmentManual(id: string) {
     return APPOINTMENTS!.find(app => app.id === id);
   }
 

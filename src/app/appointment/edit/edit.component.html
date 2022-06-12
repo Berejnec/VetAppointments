@@ -4,7 +4,8 @@
       <mat-card-header>
         <mat-icon mat-card-avatar>brush</mat-icon>
         <mat-card-title class="font-large raleway-font bold">Editează programare</mat-card-title>
-        <mat-card-subtitle>Data programarii: {{appointment.dateTime | date: 'MM/dd/yyyy HH:mm'}} <br> Status programare: {{appointment.status}}</mat-card-subtitle>
+        <mat-card-subtitle>Data programarii: {{appointment.dateTime | date: 'MM/dd/yyyy HH:mm'}} <br> Status
+          programare: {{appointment.status}}</mat-card-subtitle>
       </mat-card-header>
       <div class="flex-box">
 
@@ -22,16 +23,17 @@
           <mat-error *ngIf="appointmentFormGroup?.get('animal')?.invalid">
             <span class="padding-bottom-5">Numele de animal este necesar</span>
           </mat-error>
-          <mat-autocomplete #autoGroup="matAutocomplete" >
-            <mat-option *ngFor="let animal of uniqueAnimals" [value]="animal" [disabled]="statusIsConfirmed(appointment)">
+          <mat-autocomplete #autoGroup="matAutocomplete">
+            <mat-option *ngFor="let animal of uniqueAnimals" [value]="animal"
+                        [disabled]="statusIsConfirmed(appointment)">
               {{animal}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
 
 
-        <mat-form-field appearance="outline" >
-          <mat-label>Ați fost repartizat la doctorul :</mat-label>
+        <mat-form-field appearance="outline">
+          <mat-label>Ați fost repartizat la :</mat-label>
           <input matInput class="input-doctor" formControlName="doctorName" [readonly]="confirmed"/>
         </mat-form-field>
 
@@ -44,7 +46,7 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Schimba status:</mat-label>
+          <mat-label>Schimbă status:</mat-label>
           <mat-select formControlName="status" required [disabled]="appointment.status === 'Incheiata'">
             <mat-option value="Creata">Creata</mat-option>
             <mat-option value="Confirmata">Confirmata</mat-option>
@@ -52,9 +54,11 @@
           </mat-select>
         </mat-form-field>
 
-        <button *ngIf="appointment.status !== 'Incheiata'" mat-raised-button type="submit" [disabled]="clicked">Salvează</button>
+        <button *ngIf="appointment.status !== 'Incheiata'" mat-raised-button type="submit" [disabled]="clicked">
+          Salvează
+        </button>
         <h3 *ngIf="clicked">
-          <p class="raleway-font bold font-large padding-top-5">Programare editata!</p>
+          <p class="raleway-font bold font-large padding-top-5">Programare editată!</p>
         </h3>
       </div>
     </form>

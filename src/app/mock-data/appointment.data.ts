@@ -44,7 +44,7 @@ export let APPOINTMENTS: Array<IAppointment> = [
   {
     'id' : '6',
     'animal' : 'Pisica',
-    'dateTime' : '7/1/2022 11:00',
+    'dateTime' : '7/5/2022 11:00',
     'doctorName' : 'Dr Iovanescu',
     'diagnosis' : '',
     'status' : 'Creata'

@@ -11,35 +11,36 @@ import {
 import {APPOINTMENTS} from "../mock-data/appointment.data";
 import {IAppointment} from "../models/appointment.model";
 import {NavigationService} from "../services/navigation.service";
+import {ChartOptions, ChartOptions2, ChartOptions3} from "../models/chart.options.model";
 
-export type ChartOptions = {
-  series: ApexNonAxisChartSeries;
-  chart: ApexChart;
-  title: ApexTitleSubtitle;
-  responsive: ApexResponsive[];
-  labels: any;
-  fontFamily: any;
-};
-
-export type ChartOptions2 = {
-  series: ApexNonAxisChartSeries;
-  chart: ApexChart;
-  responsive: ApexResponsive[];
-  labels: any;
-  theme: ApexTheme;
-  title: ApexTitleSubtitle;
-  fontFamily: any;
-};
-
-export type ChartOptions3 = {
-  series: ApexNonAxisChartSeries;
-  chart: ApexChart;
-  responsive: ApexResponsive[];
-  labels: any;
-  theme: ApexTheme;
-  title: ApexTitleSubtitle;
-  fontFamily: any;
-};
+// export type ChartOptions = {
+//   series: ApexNonAxisChartSeries;
+//   chart: ApexChart;
+//   title: ApexTitleSubtitle;
+//   responsive: ApexResponsive[];
+//   labels: any;
+//   fontFamily: any;
+// };
+//
+// export type ChartOptions2 = {
+//   series: ApexNonAxisChartSeries;
+//   chart: ApexChart;
+//   responsive: ApexResponsive[];
+//   labels: any;
+//   theme: ApexTheme;
+//   title: ApexTitleSubtitle;
+//   fontFamily: any;
+// };
+//
+// export type ChartOptions3 = {
+//   series: ApexNonAxisChartSeries;
+//   chart: ApexChart;
+//   responsive: ApexResponsive[];
+//   labels: any;
+//   theme: ApexTheme;
+//   title: ApexTitleSubtitle;
+//   fontFamily: any;
+// };
 
 @Component({
   selector: 'app-statistics',
@@ -55,7 +56,7 @@ export class StatisticsComponent implements OnInit {
   public chartOptions2!: Partial<ChartOptions2> | any;
 
   @ViewChild("chart3") chart3!: ChartComponent;
-  public chartOptions3!: Partial<ChartOptions2> | any;
+  public chartOptions3!: Partial<ChartOptions3> | any;
 
   constructor(private appointmentService: AppointmentService, private navigationService: NavigationService) {
     this.chartOptions = {
@@ -147,37 +148,9 @@ export class StatisticsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
-  animals!: string[];
-
-//     findOccurences(arr: Array<IAppointment>, key: string) {
-//     let animalCounter = [];
-//     this.appointmentService.getAppointments().subscribe(appointments => this.animals = appointments.map(appointment => appointment.animal));
-//     this.animals.forEach((animal) => {
-//       if(this.animals.some((val)=>{ return val[key] == animal[key] })){
-//
-//         // If yes! then increase the occurrence by 1
-//         this.animals.forEach((k)=>{
-//           if(k[key] === animal[key]){
-//             animalCounter[animal]++;
-//           }
-//         })
-//
-//       }else{
-//         // If not! Then create a new object initialize
-//         // it with the present iteration key's value and
-//         // set the occurrence to 1
-//         let a = {}
-//         a[key] = x[key]
-//         a["occurrence"] = 1
-//         arr2.push(a);
-//       }
-//   }
-//
-// }
   goToHomePage() {
-    return this.navigationService.goToHomePage();
+    return this.navigationService.openHomePage();
   }
 }

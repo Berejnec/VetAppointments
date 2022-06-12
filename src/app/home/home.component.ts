@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {AppointmentService} from "../services/appointment.service";
+import {NavigationService} from "../services/navigation.service";
+import {imageObject} from "../models/image.model";
 
 @Component({
   selector: 'app-home',
@@ -9,27 +11,27 @@ import {AppointmentService} from "../services/appointment.service";
 })
 export class HomeComponent implements OnInit {
 
-  imageObject!: Array<{
-    image: string,
-    thumbImage: string
-  }>;
+  images!: Array<imageObject>;
 
-  constructor(private router: Router, private appointmentService: AppointmentService) { }
+  constructor(private router: Router,
+              private appointmentService: AppointmentService,
+              private navigationService: NavigationService
+  ) { }
 
   ngOnInit(): void {
-    this.appointmentService.getImageLinks().subscribe(links => this.imageObject = links);
+    this.appointmentService.getImageLinks().subscribe(links => this.images = links);
   }
 
   goToViewPage() {
-    return this.router.navigate(['vizualizare']);
+    return this.navigationService.openViewPage();
   }
 
   goToAddPage() {
-    return this.router.navigate(['adauga']);
+    return this.navigationService.openAddPage();
   }
 
   goToStatisticsPage() {
-    return this.router.navigate(['statistici']);
+    return this.navigationService.openStatisticsPage();
   }
 
 }

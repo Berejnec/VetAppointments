@@ -1,5 +1,8 @@
 <div class="back-button">
-  <button mat-button class="font-1 back-button-color" (click)="goToHomePage()"><mat-icon>home</mat-icon> Pagina principală</button>
+  <button mat-button class="font-1 back-button-color" (click)="goToHomePage()">
+    <mat-icon>home</mat-icon>
+    Pagina principală
+  </button>
 </div>
 
 <div class="flexbox">
@@ -14,8 +17,8 @@
     </div>
 
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
-
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="dateTime"
+           matSortDirection="desc">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
         <td mat-cell *matCellDef="let appointment"> {{appointment.id}} </td>
@@ -51,7 +54,9 @@
       <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef class="edit-cell"> Editează programare</th>
         <td mat-cell *matCellDef="let appointment" class="edit-cell">
-          <button mat-mini-fab color="primary" (click)="gotToAppointment(appointment)"><mat-icon>edit</mat-icon></button>
+          <button mat-mini-fab color="primary" (click)="gotToAppointment(appointment)">
+            <mat-icon>edit</mat-icon>
+          </button>
         </td>
       </ng-container>
 
@@ -63,7 +68,8 @@
       </tr>
     </table>
     <div id="no-shadow-top">
-      <mat-paginator class="paginator-shadow" [pageSizeOptions]="[10, 5, 25, 100]" aria-label="Selectează numarul de programări"></mat-paginator>
+      <mat-paginator class="paginator-shadow" [pageSizeOptions]="[10, 5, 25, 100]"
+                     aria-label="Selectează numarul de programări"></mat-paginator>
     </div>
 
   </div>

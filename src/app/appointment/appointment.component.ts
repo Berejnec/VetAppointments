@@ -74,6 +74,6 @@ export class AppointmentComponent implements OnInit {
   }
 
   goToHomePage() {
-    this.navigationService.goToHomePage().then();
+    return this.navigationService.openHomePage();
   }
 }
