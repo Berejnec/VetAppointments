@@ -54,3 +54,18 @@ mat-form-field {
 .input-doctor {
   cursor: initial;
 }
+
+.btn-style {
+  background-color: #daacf5;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
+  font-size: larger;
+  color: #000000;
+  width: 8rem;
+  height: 2.8rem;
+}
+
+.btn-style:hover {
+  background-color: #7d02a6;
+  color: white;
+}

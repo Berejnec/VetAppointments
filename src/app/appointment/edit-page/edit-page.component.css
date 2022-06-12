@@ -3,13 +3,17 @@
 }
 
 .back-button-color {
-  background-color: #c88ff3;
+  background-color: #daacf5;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
+  font-size: larger;
+  color: #000000;
   position: relative;
   left: 37%;
   top: 1vw;
 }
 
 .back-button-color:hover {
-  background-color: #ae82fc;
+  background-color: #7d02a6;
   color: white;
 }

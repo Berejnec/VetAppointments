@@ -52,14 +52,10 @@ export class AppointmentComponent implements OnInit {
   }
 
   onSubmit() {
-
-    // APPOINTMENTS.push(this.appointmentFormGroup.value);
     let val = this.appointmentFormGroup.get('dateTime')?.value;
     val = formatDate(val, 'M/dd/yyyy HH:mm', 'en');
     this.appointmentFormGroup.controls['dateTime'].setValue(val);
     this.appointmentService.addAppointment(this.appointmentFormGroup.value);
-    console.log(this.appointmentFormGroup.value);
-    console.log(APPOINTMENTS);
     setTimeout(() => {
       return this.router.navigate(['acasa']);
     }, 3000);

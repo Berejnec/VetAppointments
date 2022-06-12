@@ -90,7 +90,7 @@ export let APPOINTMENTS: Array<IAppointment> = [
     'status' : 'Incheiata'
   },
   {
-    'id' : '13',
+    'id' : '12',
     'animal' : 'Caine',
     'dateTime' : '6/28/2022 15:00',
     'doctorName' : 'Dr Iovanescu',
@@ -98,7 +98,7 @@ export let APPOINTMENTS: Array<IAppointment> = [
     'status' : 'Confirmata'
   },
   {
-    'id' : '14',
+    'id' : '13',
     'animal' : 'Caine',
     'dateTime' : '7/7/2022 12:40',
     'doctorName' : 'Dr Iovanescu',
@@ -106,7 +106,7 @@ export let APPOINTMENTS: Array<IAppointment> = [
     'status' : 'Confirmata'
   },
   {
-    'id' : '15',
+    'id' : '14',
     'animal' : 'Pisica',
     'dateTime' : '6/16/2022 15:45',
     'doctorName' : 'Dr Iovanescu',

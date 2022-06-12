@@ -54,7 +54,7 @@
           </mat-select>
         </mat-form-field>
 
-        <button *ngIf="appointment.status !== 'Incheiata'" mat-raised-button type="submit" [disabled]="clicked">
+        <button class="btn-style" *ngIf="appointment.status !== 'Incheiata'" mat-raised-button type="submit" [disabled]="clicked">
           Salvează
         </button>
         <h3 *ngIf="clicked">

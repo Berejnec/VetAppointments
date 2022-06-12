@@ -6,37 +6,48 @@
   <div>
     <h1>Statistici Vet Clinic</h1>
   </div>
-  <div class="flexbox padding-top">
-    <div id="chart">
-      <apx-chart
-        [series]="chartOptions.series"
-        [chart]="chartOptions.chart"
-        [title]="chartOptions.title"
-        [labels]="chartOptions.labels"
-        [responsive]="chartOptions.responsive"
-      ></apx-chart>
-    </div>
+  <div class="flexbox padding-top-5">
+    <mat-card class="card">
+      <div id="chart">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [title]="chartOptions.title"
+          [labels]="chartOptions.labels"
+          [legend]="chartOptions.legend"
+          [responsive]="chartOptions.responsive"
+        ></apx-chart>
+      </div>
+    </mat-card>
 
-    <div id="chart2">
-      <apx-chart
-        [series]="chartOptions2.series"
-        [chart]="chartOptions2.chart"
-        [labels]="chartOptions2.labels"
-        [title]="chartOptions2.title"
-        [theme]="chartOptions2.theme"
-        [responsive]="chartOptions2.responsive"
-      ></apx-chart>
-    </div>
+    <mat-card class="card">
+      <div id="chart3">
+        <apx-chart
+          [series]="chartOptions3.series"
+          [chart]="chartOptions3.chart"
+          [title]="chartOptions3.title"
+          [labels]="chartOptions3.labels"
+          [legend]="chartOptions3.legend"
+          [responsive]="chartOptions3.responsive"
+        ></apx-chart>
+      </div>
+    </mat-card>
 
-    <div id="chart3">
-      <apx-chart
-        [series]="chartOptions3.series"
-        [chart]="chartOptions3.chart"
-        [title]="chartOptions3.title"
-        [labels]="chartOptions3.labels"
-        [responsive]="chartOptions3.responsive"
-      ></apx-chart>
-    </div>
+    <mat-card class="card">
+      <div id="chart2">
+        <apx-chart
+          [series]="chartOptions2.series"
+          [chart]="chartOptions2.chart"
+          [labels]="chartOptions2.labels"
+          [dataLabels]="chartOptions2.dataLabels"
+          [title]="chartOptions2.title"
+          [legend]="chartOptions.legend"
+          [theme]="chartOptions2.theme"
+          [responsive]="chartOptions2.responsive"
+        ></apx-chart>
+      </div>
+    </mat-card>
+
   </div>
 </div>
 

@@ -23,6 +23,10 @@ export class AppointmentService {
     })
   }
 
+  getAppointmentsStatic() {
+    return APPOINTMENTS;
+  }
+
   getAppointment(id: string): Observable<IAppointment> {
     return Observable.create((observer: { next: (arg0: IAppointment | undefined) => void; complete: () => void; }) => {
       observer.next(APPOINTMENTS.find(appointment => appointment.id === id));

@@ -28,3 +28,6 @@ body {
 .padding-bottom-2 {
   padding-bottom: 2%;
 }
+.mat-toolbar.mat-primary {
+  background: #9220cb;
+}

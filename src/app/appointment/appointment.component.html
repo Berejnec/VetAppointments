@@ -37,9 +37,6 @@
 
 
         <div class="raleway-font bolder" *ngIf="checkSelectedAnimal(animal)">Istoricul de programări pentru {{animal}}:
-          <div *ngFor="let appointment of appointments">
-            <p></p>
-          </div>
           <ul>
             <li *ngFor="let appointment of appointments">
               <p *ngIf="appointment.animal === animal">

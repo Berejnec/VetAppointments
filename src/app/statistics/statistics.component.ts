@@ -1,46 +1,15 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AppointmentService} from "../services/appointment.service";
-import {
-  ApexChart,
-  ApexNonAxisChartSeries,
-  ApexResponsive,
-  ApexTheme,
-  ApexTitleSubtitle,
-  ChartComponent
-} from "ng-apexcharts";
+import {ChartComponent} from "ng-apexcharts";
 import {APPOINTMENTS} from "../mock-data/appointment.data";
-import {IAppointment} from "../models/appointment.model";
 import {NavigationService} from "../services/navigation.service";
 import {ChartOptions, ChartOptions2, ChartOptions3} from "../models/chart.options.model";
+import {animate} from "@angular/animations";
+import {StatisticsService} from "../services/statistics.service";
 
-// export type ChartOptions = {
-//   series: ApexNonAxisChartSeries;
-//   chart: ApexChart;
-//   title: ApexTitleSubtitle;
-//   responsive: ApexResponsive[];
-//   labels: any;
-//   fontFamily: any;
-// };
-//
-// export type ChartOptions2 = {
-//   series: ApexNonAxisChartSeries;
-//   chart: ApexChart;
-//   responsive: ApexResponsive[];
-//   labels: any;
-//   theme: ApexTheme;
-//   title: ApexTitleSubtitle;
-//   fontFamily: any;
-// };
-//
-// export type ChartOptions3 = {
-//   series: ApexNonAxisChartSeries;
-//   chart: ApexChart;
-//   responsive: ApexResponsive[];
-//   labels: any;
-//   theme: ApexTheme;
-//   title: ApexTitleSubtitle;
-//   fontFamily: any;
-// };
+export interface IDictionary {
+  [index: string]: number;
+}
 
 @Component({
   selector: 'app-statistics',
@@ -58,16 +27,36 @@ export class StatisticsComponent implements OnInit {
   @ViewChild("chart3") chart3!: ChartComponent;
   public chartOptions3!: Partial<ChartOptions3> | any;
 
-  constructor(private appointmentService: AppointmentService, private navigationService: NavigationService) {
+  constructor(private appointmentService: AppointmentService,
+              private navigationService: NavigationService,
+              private statisticsService: StatisticsService) {
     this.chartOptions = {
-      series: [3, 5, 6, 1],
+      series: this.statisticsService.getAnimalsCount(),
       chart: {
         width: 380,
-        type: "pie"
+        type: "pie",
+        fontFamily: 'Raleway, sans-serif',
+        foreColor: 'white'
       },
-      labels: ['Caine', 'Pisica', 'Iepure', 'Broasca Testoasa'],
+      dataLabels: {
+        enabled: true,
+        style: {
+          fontSize: "140px",
+          fontFamily: "Helvetica, Arial, sans-serif",
+          fontWeight: "bold"
+        }
+      },
+      legend: {
+        fontSize: '17px',
+        fontWeight: 500
+      },
+      labels: ['Caine', 'Pisica', 'Broasca Testoasa', 'Iepure', 'Hamster', 'Papagal'],
       title: {
-        text: 'Distributia animalelor per programari'
+        text: 'Distributia animalelor per programari',
+        style: {
+          fontSize: '20px',
+          fontWeight: 'bold'
+        }
       },
       responsive: [
         {
@@ -82,27 +71,44 @@ export class StatisticsComponent implements OnInit {
           }
         }
       ],
-      fontFamily: `'Raleway', sans-serif`
     };
 
     this.chartOptions2 = {
-      series: [5, 8, 2],
+      series: [this.statisticsService.getDoneStatusesNumber(), this.statisticsService.getInProgressStatusesNumber()],
       chart: {
         width: "100%",
-        type: "pie"
+        type: "pie",
+        fontFamily: 'Raleway, sans-serif',
+        fontSize: '20px',
+        foreColor: 'white'
+      },
+      dataLabels: {
+        enabled: true,
+        style: {
+          fontSize: '14px',
+          fontFamily: 'Raleway, sans-serif',
+          fontWeight: 'bold',
+          height: 'auto'
+        }
       },
       labels: [
-        "Creata",
-        "Confirmata",
-        "Incheiata",
+        "Incheiate",
+        "In progres",
       ],
+      legend: {
+        fontSize: '50px',
+      },
       theme: {
         monochrome: {
           enabled: true
         }
       },
       title: {
-        text: "Statusul programarilor"
+        text: "Statusul programarilor",
+        style: {
+          fontSize: '21px',
+          fontWeight: 'bold'
+        }
       },
       responsive: [
         {
@@ -121,14 +127,24 @@ export class StatisticsComponent implements OnInit {
     };
 
     this.chartOptions3 = {
-      series: [2, 7, 5, 1],
+      series: [3, 8, 3],
       chart: {
         width: 380,
-        type: "donut"
+        type: "donut",
+        fontFamily: 'Raleway, sans-serif',
+        fontWeight: 'bold',
+        foreColor: 'white'
       },
-      labels: ['Mai', 'Iunie', 'Iulie', 'August'],
+      labels: ['Mai', 'Iunie', 'Iulie'],
       title: {
-        text: 'Statistici progamari pe luni'
+        text: 'Statistici progamari pe luni',
+        style: {
+          fontSize: '25px',
+          fontWeight: 'bold'
+        }
+      },
+      legend: {
+        fontSize: '20px',
       },
       responsive: [
         {
