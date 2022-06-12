@@ -77,3 +77,25 @@ mat-form-field {
 ngx-mat-datetime-picker {
   height: 100px !important;
 }
+
+.btn-style {
+  background-color: #daacf5;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
+  font-size: larger;
+  color: #000000;
+  width: 8rem;
+  height: 2.8rem;
+}
+
+.btn-style:hover {
+  background-color: #7d02a6;
+  color: white;
+}
+
+.btn-style:disabled {
+  background-color: #9c76a9;
+  color: #2d0938;
+  pointer-events: none;
+  opacity: 0.3;
+}

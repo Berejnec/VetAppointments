@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {APPOINTMENTS} from "../mock-data/appointment.data";
 import {IDictionary} from "../statistics/statistics.component";
 import {AppointmentService} from "./appointment.service";
 

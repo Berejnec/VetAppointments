@@ -18,15 +18,15 @@ export class EditComponent implements OnInit {
 
   appointments!: Array<IAppointment>;
 
-  public animals = APPOINTMENTS.map(appointment => appointment.animal);
+  public _appointment!: IAppointment;
 
+  public animals = this.appointmentService.getAppointmentsStatic().map(appointment => appointment.animal);
   public uniqueAnimals = [...new Set(this.animals)];
-
   animal: string = '';
 
   clicked = false;
-
   confirmed = false;
+
   statuses: string[] = ['Creata', 'Confirmata', 'Incheiata'];
 
   constructor(private appointmentService: AppointmentService) {
@@ -39,9 +39,6 @@ export class EditComponent implements OnInit {
       status: new FormControl("")
     })
   }
-
-
-  public _appointment!: IAppointment;
 
   get appointment(): IAppointment {
     return this._appointment;

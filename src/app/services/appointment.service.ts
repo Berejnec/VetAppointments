@@ -34,19 +34,11 @@ export class AppointmentService {
     });
   }
 
-  getAppointmentManual(id: string) {
-    return APPOINTMENTS!.find(app => app.id === id);
-  }
-
   getAppointmentByName(name: string): Observable<IAppointment> {
     return Observable.create((observer: { next: (arg0: IAppointment | undefined) => void; complete: () => void; }) => {
       observer.next(APPOINTMENTS.find(appointment => appointment.animal === name));
       observer.complete();
     });
-  }
-
-  getAppointmentById(id: string) {
-    return APPOINTMENTS.find(appointment => appointment.id === id);
   }
 
   updateAppointment(appointment: IAppointment) {

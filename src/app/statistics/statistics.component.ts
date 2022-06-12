@@ -31,7 +31,7 @@ export class StatisticsComponent implements OnInit {
               private navigationService: NavigationService,
               private statisticsService: StatisticsService) {
     this.chartOptions = {
-      series: this.statisticsService.getAnimalsCount(),
+      series: this.animalsCount,
       chart: {
         width: 380,
         type: "pie",
@@ -50,9 +50,9 @@ export class StatisticsComponent implements OnInit {
         fontSize: '17px',
         fontWeight: 500
       },
-      labels: ['Caine', 'Pisica', 'Broasca Testoasa', 'Iepure', 'Hamster', 'Papagal'],
+      labels: ['Câine', 'Pisică', 'Broască Țestoasă', 'Iepure', 'Hamster', 'Papagal'],
       title: {
-        text: 'Distributia animalelor per programari',
+        text: 'Distribuția animalelor per programări',
         style: {
           fontSize: '20px',
           fontWeight: 'bold'
@@ -92,8 +92,8 @@ export class StatisticsComponent implements OnInit {
         }
       },
       labels: [
-        "Incheiate",
-        "In progres",
+        "Încheiate",
+        "În progres",
       ],
       legend: {
         fontSize: '50px',
@@ -104,7 +104,7 @@ export class StatisticsComponent implements OnInit {
         }
       },
       title: {
-        text: "Statusul programarilor",
+        text: "Statusul programărilor",
         style: {
           fontSize: '21px',
           fontWeight: 'bold'
@@ -137,7 +137,7 @@ export class StatisticsComponent implements OnInit {
       },
       labels: ['Mai', 'Iunie', 'Iulie'],
       title: {
-        text: 'Statistici progamari pe luni',
+        text: 'Statistici progamări pe luni',
         style: {
           fontSize: '25px',
           fontWeight: 'bold'
@@ -163,7 +163,10 @@ export class StatisticsComponent implements OnInit {
     };
   }
 
+  animalsCount = this.statisticsService.getAnimalsCount();
+
   ngOnInit(): void {
+    this.chartOptions.series = this.animalsCount;
   }
 
   goToHomePage() {

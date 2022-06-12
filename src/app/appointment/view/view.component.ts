@@ -20,7 +20,6 @@ export class ViewComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'animal', 'dateTime', 'doctorName', 'diagnosis', 'status', 'edit'];
   dataSource!: MatTableDataSource<IAppointment>;
 
-
   @ViewChild(MatTable) table!: MatTable<IAppointment>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -30,9 +29,21 @@ export class ViewComponent implements OnInit, AfterViewInit {
               private appointmentService: AppointmentService) {
   }
 
-
   ngOnInit(): void {
     this.appointmentService.getAppointments().subscribe(appointments => this.dataSource = new MatTableDataSource<IAppointment>(appointments));
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sortingDataAccessor = (item, property) => {
+      switch (property) {
+        case 'dateTime':
+          return new Date(item.dateTime).getTime();
+        default:
+          return item[property as keyof IAppointment] as string;
+      }
+    };
   }
 
   applyFilter(event: Event) {
@@ -40,26 +51,12 @@ export class ViewComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  ngAfterViewInit(): void {
-    // this.sort.sort(({ id: 'dateTime', start: 'desc'}) as MatSortable);
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sortingDataAccessor = (item, property) => {
-      switch (property) {
-        case 'dateTime': return new Date(item.dateTime).getTime();
-        default: return item[property as keyof IAppointment] as string;
-      }
-    };
-  }
-
-
   goToHomePage() {
     return this.navigationService.openHomePage();
   }
 
   gotToAppointment(appointment: IAppointment): Promise<boolean> {
     return this.navigationService.openAppointment(appointment.id);
-
   }
 
   refresh() {

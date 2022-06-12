@@ -64,28 +64,6 @@ h1 {
   transition: top ease 0.5s;
 }
 
-.card:hover {
-  background-color: white;
-}
-
 apx-chart {
   cursor: pointer;
 }
-
-/*.card:after {*/
-/*  !*content: '';*!*/
-/*  opacity: 0;*/
-/*  position: absolute;*/
-/*  z-index: 1;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*  bottom: 0;*/
-/*  right: 0;*/
-/*  border-radius: inherit;*/
-/*  transition: opacity .3s;*/
-/*  background: linear-gradient(to bottom, #eee5f5, #fac2fa)*/
-/*}*/
-
-/*.card:hover {*/
-/*  background-color: #7d5dab;*/
-/*}*/

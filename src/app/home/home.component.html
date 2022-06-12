@@ -1,27 +1,27 @@
 <div class="flex-box padding-top-5">
-    <h1 id="vet-clinic-style">Vet Clinic</h1>
+  <h1 id="vet-clinic-style">Vet Clinic</h1>
 </div>
+
 <div class="flex-box padding-top-5 padding-bottom-2">
   <h6 id="motto-style">Mereu alături de animalul tău de companie!</h6>
 </div>
-<ul class="wrapper flex-box">
 
-  <li class="icon view">
-    <span class="info">Vizualizează programările</span>
-    <button mat-fab class="view-color" (click)="goToViewPage()"><mat-icon>visibility</mat-icon></button>
-  </li>
-
-  <li class="icon add">
-    <span class="info">Rezervă o programare</span>
-    <button mat-fab class="add-color" (click)="goToAddPage()"><mat-icon>add_card</mat-icon></button>
-  </li>
-
-  <li class="icon statistics">
-    <span class="info">Vizualizează statistici</span>
-    <button mat-fab class="statistics-color" (click)="goToStatisticsPage()"><mat-icon>bar_chart</mat-icon></button>
-  </li>
-
-</ul>
+<div class="wrapper flex-box padding-bottom-3">
+  <div class="buttons">
+    <button type="button" class="slide btn1">
+      <div class="raleway-font white" (click)="goToViewPage()">Programari</div>
+      <i class="icon-notebook"></i>
+    </button>
+    <button type="button" class="slide btn2">
+      <div class="raleway-font white" (click)="goToAddPage()">Rezervă</div>
+      <i class="icon-notebook"></i>
+    </button>
+    <button type="button" class="slide btn3">
+      <div class="raleway-font white" (click)="goToStatisticsPage()">Statistici</div>
+      <i class="icon-chart"></i>
+    </button>
+  </div>
+</div>
 
 <div id="image-slider">
   <ng-image-slider

@@ -21,13 +21,7 @@ export class EditPageComponent implements OnInit {
     this.appointmentService.getAppointment(this.navigationService.getParam(this.activatedRoute, 'id'))
       .subscribe(appointment => {
         this.appointment = appointment;
-        console.log(this.appointment);
       });
-    // this.appointmentService.getAppointmentsObs(this.navigationService.getParam(this.activatedRoute, 'id'))
-    //   .subscribe(appointment => {
-    //     this.appointment = appointment;
-    //     console.log(this.appointment);
-    //   })
   }
 
   goBack() {

@@ -58,7 +58,7 @@ export class AppointmentComponent implements OnInit {
     this.appointmentService.addAppointment(this.appointmentFormGroup.value);
     setTimeout(() => {
       return this.router.navigate(['acasa']);
-    }, 3000);
+    }, 2000);
   }
 
   openDialog() {

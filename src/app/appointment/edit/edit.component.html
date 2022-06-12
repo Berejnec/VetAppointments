@@ -39,7 +39,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Diagnostic</mat-label>
-          <input matInput formControlName="diagnosis" required [readonly]="appointment.status === 'Incheiata'">
+          <input matInput formControlName="diagnosis" [required]="appointment.status === 'Incheiata'" [readonly]="appointment.status === 'Incheiata'">
           <mat-error *ngIf="appointmentFormGroup?.get('diagnosis')?.invalid">
             <span class="padding-bottom-5">Diagnosticul este necesar</span>
           </mat-error>

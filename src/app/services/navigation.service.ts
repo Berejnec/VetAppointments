@@ -7,7 +7,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class NavigationService {
 
   constructor(private router: Router) {
-
   }
 
   getParam(activatedRoute: ActivatedRoute, paramName: string): string {
@@ -37,5 +36,4 @@ export class NavigationService {
   openStatisticsPage() {
     return this.router.navigate(['statistici']);
   }
-
 }

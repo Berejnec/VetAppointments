@@ -7,7 +7,6 @@
 
 <div class="flexbox">
   <div class="table-center">
-
     <p class="font-1-xx-large">Programări existente: </p>
     <div class="table-header">
       <mat-form-field appearance="standard">
@@ -15,7 +14,6 @@
         <input matInput class="font-1" (keyup)="applyFilter($event)" placeholder="Caută o programare" #input>
       </mat-form-field>
     </div>
-
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="dateTime"
            matSortDirection="desc">
@@ -68,16 +66,10 @@
       </tr>
     </table>
     <div id="no-shadow-top">
-      <mat-paginator class="paginator-shadow" [pageSizeOptions]="[10, 5, 25, 100]"
-                     aria-label="Selectează numarul de programări"></mat-paginator>
+      <mat-paginator class="paginator-shadow"
+                     [pageSizeOptions]="[10, 5, 25, 100]"
+                     aria-label="Selectează numarul de programări"
+      ></mat-paginator>
     </div>
-
   </div>
 </div>
-
-
-
-
-
-
-
